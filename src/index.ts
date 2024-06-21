@@ -9,7 +9,6 @@ const objApi: ApiUrl = {
     attribute : 'vehicles/',
 } 
 
-
 type Vehicle<T> = {
     "name": T, 
     "model": T, 
@@ -28,6 +27,8 @@ type Vehicle<T> = {
     "edited": T, 
     "url": T
 }
+
+export type Args <T extends any[], E> = (...args : T) => E | undefined;
 
 
 const fetchApi =  async <T>() =>{
@@ -50,16 +51,19 @@ const fetchApi =  async <T>() =>{
     }
 }
 
-export const memoize = (fnFecthApi :  (...args : unknown[]) => any) =>{
-    let memoizeCache: Record<string, unknown> = {};//Record declaracion de un objeto clave valor
-    return (...args : unknown[]) => {
-        const key:string = JSON.stringify(args);
-        if(memoizeCache[key]){
+
+
+export const memoize = <T extends any[], E>( fnFecthApi : Args<T, E> ): Args <T, E> =>{
+    let memoizeCache: Record<string, E | undefined> = {};//Record declaracion de un objeto clave valor
+    console.log(memoizeCache)
+    return (...args : T) => {
+        const key: string = JSON.stringify(args);
+        if(key in memoizeCache){//si existe independiente de su valor
             // si lo encuentra  devuelve la cache almacenada
             return memoizeCache[key];
         }else{
             //sino pasa los argumentos a la funcion 
-            const datas: Record<string, unknown> = fnFecthApi(...args)
+            const datas: E | undefined = fnFecthApi(...args);
             //y los almacena en la cache
             memoizeCache[key] = datas;
             return datas;
