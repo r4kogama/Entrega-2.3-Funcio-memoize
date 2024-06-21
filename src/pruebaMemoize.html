@@ -5,8 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memoize</title>
     <script src="../dist/index.js"></script>
+    <style>
+        h1{
+            text-align: center;
+        }
+        .box-btn{
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        .list-vehicles{
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            justify-content: space-around;
+        }
+        .list-vehicles > li{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+        .list-vehicles > li > span:nth-child(2){
+            text-transform: uppercase;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+        .list-vehicles > li > span{
+            padding: 5px 0px;
+        }
+    </style>
 </head>
 <body>
-    
+    <main>
+        <h1>Memoize</h1>
+        <div class="box-btn">
+            <button class="btn-list">List Vehicles</button>
+        </div>
+        <ul class="list-vehicles"></ul>
+    </main>
 </body>
 </html>
