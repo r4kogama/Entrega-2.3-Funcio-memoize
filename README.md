@@ -2,6 +2,7 @@
 
 ## Comandos de instalacion de TS y Jest
 
+
 ### Descarga e instalacion de todas las dependencias que estan en el package.json
 
 ```sh
@@ -24,8 +25,18 @@ npm install -D jest-environment-jsdom
 
 ```
 
-### Execucion de tests
+### Ejecucion de tests
 
 ```sh
 npm run test
+```
+
+### Live Server web
+
+## El proyecto esta disponible en web para abrirlo se necesita un ***(live server)*** en el editor de texto o IDE.
+
+# Como alternativa se puede instalar un HTTP server y ejecutar el comando \_**http-server**\_ donde elegir distintas rutas del server
+
+```sh
+npm install --global http-server
 ```

@@ -55,11 +55,11 @@ const fetchApi =  async <T>() =>{
 
 export const memoize = <T extends any[], E>( fnFecthApi : Args<T, E> ): Args <T, E> =>{
     let memoizeCache: Record<string, E | undefined> = {};//Record declaracion de un objeto clave valor
-    console.log(memoizeCache)
     return (...args : T) => {
         const key: string = JSON.stringify(args);
         if(key in memoizeCache){//si existe independiente de su valor
             // si lo encuentra  devuelve la cache almacenada
+            console.log('Using cached data, the request has not been sent..');
             return memoizeCache[key];
         }else{
             //sino pasa los argumentos a la funcion 
@@ -88,7 +88,7 @@ const createVehicleList = <T>(vehicles:  Vehicle<T>[]): void => {
     let liNodes = '' as string;
     vehicles.forEach((vehicle: Vehicle<T>, i: number) => {
         liNodes +=
-          `<li class="info-person" >
+          `<li class="info-vehicle" >
               <span>Nº: ${i+1}</span>
               <span>${vehicle.name}</span>
               <span>Model: ${vehicle.model}</span>
