@@ -1,4 +1,6 @@
-# Entrega-2.1-Funcion-debounce
+# Entrega-2.3-Funcion-memoize
+### Git pages
+#### [Go to link web](https://r4kogama.github.io/Entrega-2.3-Funcio-memoize/)
 
 ### Comandos de instalacion
 
